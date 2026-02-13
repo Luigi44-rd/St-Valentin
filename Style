@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #c2185b 0%, #880e4f 100%);
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    text-align: center;
+    max-width: 500px;
+}
+
+.title {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.title-love {
+    color: white;
+}
+
+.title-valentine {
+    color: white;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 25px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+.characters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 20px;
+    font-size: 70px;
+}
+
+.character {
+    animation: bounce 1s infinite;
+}
+
+.character:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.speech-bubble {
+    background: #f0f0f0;
+    border-radius: 20px;
+    padding: 8px 12px;
+    display: inline-block;
+    font-size: 14px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 15px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-top: 10px solid #f0f0f0;
+}
+
+.question {
+    font-size: 1.8em;
+    color: #333;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.love-word {
+    color: #ff69b4;
+    font-weight: bold;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 15px;
+    position: relative;
+    min-height: 60px;
+    align-items: flex-start;
+}
+
+button {
+    padding: 10px 25px;
+    font-size: 1em;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.yes-btn {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+    padding: 10px 25px;
+    font-size: 1em;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+    position: relative;
+    z-index: 1;
+    transition: all 0.5s ease;
+    transform: scale(1);
+}
+
+.yes-btn:hover {
+    transform: scale(2.5);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.6);
+}
+
+.no-btn {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+    position: static;
+    transition: all 0.2s ease-out;
+    z-index: 10;
+}
+
+.no-btn.escaping {
+    position: fixed;
+}
+
+.success-message {
+    font-size: 1.5em;
+    color: #ff1493;
+    margin: 15px 0;
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.success-message.show {
+    display: block;
+}
+
+.emoji-rain {
+    position: fixed;
+    pointer-events: none;
+    font-size: 2em;
+    animation: fall 3s ease-in forwards;
+    top: -50px;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

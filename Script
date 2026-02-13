@@ -1,0 +1,61 @@
+const yesBtn = document.querySelector('.yes-btn');
+const noBtn = document.querySelector('.no-btn');
+const successMessage = document.querySelector('.success-message');
+const buttonsContainer = document.querySelector('.buttons');
+
+let isEscaping = false;
+
+// Positionner le bouton No au démarrage
+function resetNoButtonPosition() {
+    noBtn.classList.remove('escaping');
+    isEscaping = false;
+}
+
+// Initialiser au chargement
+window.addEventListener('load', resetNoButtonPosition);
+
+noBtn.addEventListener('mouseover', function() {
+    if (!isEscaping) {
+        noBtn.classList.add('escaping');
+        isEscaping = true;
+    }
+    
+    // Générer une position aléatoire moins loin
+    const randomX = Math.random() * (window.innerWidth - 400) + 200;
+    const randomY = Math.random() * (window.innerHeight - 400) + 200;
+    
+    noBtn.style.left = randomX + 'px';
+    noBtn.style.top = randomY + 'px';
+});
+
+// Aussi quand on essaie de cliquer dessus
+noBtn.addEventListener('mousedown', function(e) {
+    e.preventDefault();
+    const randomX = Math.random() * (window.innerWidth - 400) + 200;
+    const randomY = Math.random() * (window.innerHeight - 400) + 200;
+    
+    noBtn.style.left = randomX + 'px';
+    noBtn.style.top = randomY + 'px';
+});
+
+yesBtn.addEventListener('click', function() {
+    successMessage.classList.add('show');
+    buttonsContainer.style.display = 'none';
+    noBtn.style.display = 'none';
+    createEmojiRain();
+});
+
+function createEmojiRain() {
+    const emojis = ['💕', '❤️', '💖', '💗', '💝'];
+    for (let i = 0; i < 100; i++) {
+        setTimeout(() => {
+            const emoji = document.createElement('div');
+            emoji.className = 'emoji-rain';
+            emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            emoji.style.left = Math.random() * 100 + '%';
+            document.body.appendChild(emoji);
+
+            setTimeout(() => emoji.remove(), 3000);
+        }, i * 30);
+    }
+}

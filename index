@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Me Valentine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <span class="title-love">Love</span> <span class="title-valentine">Me Valentine</span>
+        </div>
+
+        <div class="card">
+            <div class="characters">
+                <span class="character">🐻</span>
+                <span class="character">🐼</span>
+            </div>
+
+            <div class="speech-bubble">
+                Says: 💕
+            </div>
+
+            <div class="question">
+                Do you <span class="love-word">❤️ve</span> me?
+            </div>
+
+            <div class="buttons">
+                <button class="yes-btn">Yes</button>
+                <button class="no-btn">No</button>
+            </div>
+
+            <div class="success-message">
+                🎉 Yay! I love you too! 💕
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
